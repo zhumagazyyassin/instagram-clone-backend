@@ -1,6 +1,10 @@
 from django.urls import path
-from .views import PostListCreateView  # ОСЫ ЖЕРДЕГІ АТ ПЕН VIEWS-ТАҒЫ АТ БІРДЕЙ БОЛУЫ КЕРЕК
+from .views import PostListCreateView
 
 urlpatterns = [
-    path('posts/', PostListCreateView.as_view(), name='post-list'),
+    # Барлық посттарды алу және жаңа пост салу: /api/posts/
+    path('posts/', PostListCreateView.as_view(), name='post-list-create'),
+    
+    # Болашақта әр постты жеке көру үшін (мысалы: /api/posts/5/)
+    # path('posts/<int:pk>/', PostDetailView.as_view(), name='post-detail'),
 ]
